@@ -1,0 +1,16 @@
+services:
+    davidjegat_jimport.container:
+        class: 'DavidJegat\JImportBundle\Container\FunctionContainer'
+    davidjegat_jimport.parser:
+        class: 'DavidJegat\JImportBundle\Parser\Parser'
+        arguments: [ @davidjegat_jimport.container ]
+    davidjegat_jimport.filter:
+        class: 'DavidJegat\JImportBundle\Filters\JImportFilter'
+        arguments: [ @davidjegat_jimport.parser, @logger ]
+        tags:
+            - {name: assetic.filter, alias: 'jimport' }
+    davidjegat_jimport.import_function:
+        class: 'DavidJegat\JImportBundle\Functions\ImportFunction'
+        arguments: [ @service_container ]
+        tags:
+            - {name: davidjegat_jimport.function }
