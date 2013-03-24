@@ -6,7 +6,7 @@ services:
         arguments: [ @davidjegat_jimport.container ]
     davidjegat_jimport.filter:
         class: 'DavidJegat\JImportBundle\Filters\JImportFilter'
-        arguments: [ @davidjegat_jimport.parser, @logger ]
+        arguments: [ @service_container ]
         tags:
             - {name: assetic.filter, alias: 'jimport' }
     davidjegat_jimport.import_function:

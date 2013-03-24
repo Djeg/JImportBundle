@@ -21,17 +21,25 @@ class JImportFilter implements FilterInterface
 	 */
 	private $parser;
 
+	/**
+	 * @var boolean $isCache
+	 * @access private
+	 */
+	private $isCache;
+
 	public function filterLoad(AssetInterface $asset)
 	{
 		// reload the file each by touch the asset
-		$root = $asset->getSourceRoot();
-        $path = $asset->getSourcePath();
+		if(!$this->isCache){
+			$root = $asset->getSourceRoot();
+	        $path = $asset->getSourcePath();
 
-        $filename = realpath($root . '/' . $path);
+	        $filename = realpath($root . '/' . $path);
 
-        if (file_exists($filename)) {
-            touch($filename);
-        }
+	        if (file_exists($filename)) {
+	            touch($filename);
+	        }
+		}
 	}
 
 	public function filterDump(AssetInterface $asset)
@@ -42,11 +50,11 @@ class JImportFilter implements FilterInterface
 	/**
 	 * Construct the JImportFilter
 	 *
-	 * @param Parser $parser
+	 * @param ServiceContainer $container
 	 */
-	public function __construct(Parser $parser, $log)
+	public function __construct($container)
 	{
-		$this->parser = $parser;
-		$this->log = $log;
+		$this->parser = $container->get('davidjegat_jimport.parser');
+		$this->isCache = $container->getParameter('davidjegat_jimport.cache');
 	}
 }
