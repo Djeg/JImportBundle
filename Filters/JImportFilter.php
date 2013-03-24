@@ -52,9 +52,9 @@ class JImportFilter implements FilterInterface
 	 *
 	 * @param ServiceContainer $container
 	 */
-	public function __construct($container)
+	public function __construct(Parser $parser, $cache)
 	{
-		$this->parser = $container->get('davidjegat_jimport.parser');
-		$this->isCache = $container->getParameter('davidjegat_jimport.cache');
+		$this->parser = $parser;
+		$this->isCache = $cache;
 	}
 }
