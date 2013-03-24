@@ -7,7 +7,7 @@
     "require": {
         "symfony/framework-bundle": ">=2.1,<2.3-dev",
         "php": ">=5.3.2",
-        "kriswallsmith/assetic": "1.*",
+        "kriswallsmith/assetic": ">=1.1.0-alpha4,<1.2-dev",
         "symfony/assetic-bundle": "2.1.*",
         "twig/twig": "1.12.*",
         "twig/extensions": "1.0.*"

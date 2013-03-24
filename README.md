@@ -28,7 +28,7 @@ into your Symfony2 Kernel :
 
 It's done ! Jimport is install on your symfony 2.
 
-## How use it ?
+## How to use it ?
 
 This first things to do is to register your bundles into your assetic configuration :
 
