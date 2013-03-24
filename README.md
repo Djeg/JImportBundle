@@ -1,6 +1,8 @@
 JImportBundle
 =============
 
+[![Build Status](https://travis-ci.org/davidjegat/JImportBundle.png)](https://travis-ci.org/davidjegat/JImportBundle)
+
 An assetic filter for javascripts file that allow you to import client javascripts easily like that :
 
 ```javascript
